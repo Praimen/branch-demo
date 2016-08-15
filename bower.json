@@ -2,8 +2,8 @@
   "name": "branchdemo",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.2.0",
     "gsap": "~1.19.0",
-    "bootstrap-toggle": "^2.2.2"
+    "bootstrap-toggle": "^2.2.2",
+    "bootstrap": "3.3.7"
   }
 }
