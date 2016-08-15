@@ -118,9 +118,20 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" >Feature Branch WorkFlow</h4>
+            <h3 class="modal-title" >Feature Branch WorkFlow</h3>
           </div>
-
+          <h4>How to Feature Branch</h4>
+          <ul>
+            <li>build the feature branch from the release branch</li>
+            <li>The only branch that should ever be pulled into your feature branch is the release branch</li>
+            <li>The feature branch should only contain your feature</li>
+            <li>The feature branch should be successfully built before integration built and testing</li>
+          </ul>
+          <h4>When to Co-Op</h4>
+          <ul>
+            <li></li>
+            <li>when your feature is possibly dependant on another feature, but a scenario exists in which your feature could go to PROD on its own</li>
+          </ul>
 
 
         </div>
@@ -133,25 +144,35 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h2 class="modal-title">Release Branch WorkFlow</h2>
+            <h3 class="modal-title">Release Branch WorkFlow</h3>
           </div>
-          <ul style="padding: 20px;">
-            <h3>Monday</h3>
+          <h4>Monday</h4>
+          <ul>
             <li>the release branch is created from master</li>
             <li> all feature branches will pull the release into their branch</li>
-            <h3>During the week</h3>
+          </ul>
+          <br>
+          <h4>During the week</h4>
+          <ul>
             <li>a pull request to the release branch should be created once a feature is ready for QA</li>
-            <li>Komali should be a reviewer, her approval will ensure that the feature has been tested and that there are no other commit to that feature branch</li>
-            <li>the release branch will only contain features that have been slated to go to PROD on Sunday or Thursday</li>
-            <h3>Before Deployment</h3>
+            <li>QA Lead should be a reviewer, her approval will ensure that the feature has been tested and that there are no other commits past her approval</li>
+            <li>the release branch will only contain features that have been tested, have little chance for change, and slated to go to PROD on Sunday or Thursday</li>
+          </ul>
+          <br>
+          <h4>Before Deployment</h4>
+          <ul>
             <li>Friday morning the release features going into PROD on Sunday will be merged into</li>
-            <li></li>
-            <h3>Monday after deployment</h3>
+            <li>This branch will be build and sent to QA for a final production integration testing pass, this will be the build that is send to PROD </li>
+          </ul>
+          <br>
+          <h4>Monday after deployment</h4>
+          <ul>
             <li>the release  branch is verified with the deployments that actually when to production</li>
             <li>the release branch is merged into master</li>
             <li> all feature branches will pull the release into their branch</li>
-
           </ul>
+
+
         </div>
       </div>
     </div>
@@ -161,21 +182,18 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" >Co-op Branch WorkFlow</h4>
+            <h3 class="modal-title" >Co-op Branch WorkFlow</h3>
           </div>
-
-          <ul style="padding: 20px;">
-            <h3>How to Co-Op</h3>
+          <h4>How to Co-Op</h4>
+          <ul>
             <li> build the co-op branch from the release branch</li>
             <li> merge your feature into the co-op branch, then merge any other feature needed into the Co-Op</li>
-
             <li>Co-Op testing/integration should not necessarily delay QA testing</li>
-
-            <h3>When to Co-Op</h3>
+          </ul>
+          <h4>When to Co-Op</h4>
+          <ul>
             <li>When there is an issue in the Integration build but maybe not in your feature branch, co-op will allow you to troubleshoot particular features with your own</li>
             <li>when your feature is possibly dependant on another feature, but a scenario exists in which your feature could go to PROD on its own</li>
-
-
           </ul>
         </div>
       </div>

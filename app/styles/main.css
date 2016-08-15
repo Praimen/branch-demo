@@ -153,6 +153,13 @@ body {
 
 
 
+
+/*----------Modal-----------------*/
+.modal-content{
+  padding:20px;
+}
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
