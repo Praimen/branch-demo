@@ -23,6 +23,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
+          <li class="active"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".goals-modal">Goals</button></li>
           <li class="active"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".release-branch-modal">Release</button></li>
           <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".coop-branch-modal">Co-op</button></li>
           <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".feature-branch-modal">Feature</button></li>
@@ -111,7 +112,41 @@
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 
+    <div class="modal fade goals-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" >Quantum Branch WorkFlow </h3>
+          </div>
+          <h4>Goals</h4>
+          <ul>
+            <li>To establish a clear code base state that is more reflective of the code base in PROD</li>
+            <li>To have more isolated feature branches that can more readily lend themselves to our agile workflow philosophy (shippable stories)</li>
+            <li>To have more confidence about what code is being merged and the likelihood of it being apart of the PROD codebase </li>
+            <li>To establish clear roles and workflow practices around the branches</li>
 
+          </ul>
+
+          <h4>Pros</h4>
+          <ul>
+            <li>Push QA to be more of a release/ pre-prod testing environment</li>
+            <li>more predictable code merges</li>
+            <li>clear recovery/revert path</li>
+            <li>more communication needed</li>
+          </ul>
+
+          <h4>Con</h4>
+          <ul>
+            <li>more branches/complex process</li>
+            <li>Branch Manager needed</li>
+            <li>more communication needed</li>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
 
     <div class="modal fade feature-branch-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
       <div class="modal-dialog modal-lg" role="document">
@@ -123,14 +158,16 @@
           <h4>How to Feature Branch</h4>
           <ul>
             <li>build the feature branch from the release branch</li>
-            <li>The only branch that should ever be pulled into your feature branch is the release branch</li>
+            <li>The only branch that should be pulled into your feature branch is the release branch</li>
             <li>The feature branch should only contain your feature</li>
-            <li>The feature branch should be successfully built before integration built and testing</li>
+            <li>The feature branch should be successfully built before integration build and testing</li>
           </ul>
-          <h4>When to Co-Op</h4>
+          <h4>Working with other features</h4>
           <ul>
-            <li></li>
-            <li>when your feature is possibly dependant on another feature, but a scenario exists in which your feature could go to PROD on its own</li>
+            <li>After you have completed a successful feature build , then do an integration build (hopefully this step can be automated and consolidated into a feature/integration build)</li>
+            <li>If an integration build issues arise, consider creating a Co-op branch to resolve issues, but strongly consider sending your successfully isolated feature branch to QA for testing </li>
+            <li>When your feature is possibly dependant on another feature, but a scenario exists in which your feature could go to PROD on its own</li>
+            <li>Always compare feature branch contents vs the release branch</li>
           </ul>
 
 
@@ -154,22 +191,25 @@
           <br>
           <h4>During the week</h4>
           <ul>
+            <li>As a feature if ready for QA a feature build is done</li>
             <li>a pull request to the release branch should be created once a feature is ready for QA</li>
-            <li>QA Lead should be a reviewer, her approval will ensure that the feature has been tested and that there are no other commits past her approval</li>
-            <li>the release branch will only contain features that have been tested, have little chance for change, and slated to go to PROD on Sunday or Thursday</li>
+            <li>QA Lead should be a reviewer on the pull request, they will mark on the pull request that a test cycle is beginning on the feature once they have deployed the file</li>
+            <li>QA Lead approval will ensure that the feature has been tested and that there are no other unknown commit/changes between the beginning and ending of the testing commits past her approval</li>
+            <li>The release branch will only contain features that have been tested, have little chance for change, and slated to go to PROD on Sunday or Thursday</li>
+            <li>Developers with be notified when a feature is merged into the release branch</li>
           </ul>
           <br>
           <h4>Before Deployment</h4>
           <ul>
-            <li>Friday morning the release features going into PROD on Sunday will be merged into</li>
+            <li>Wednesday(or so) morning the release features going into PROD on Sunday will be merged into</li>
             <li>This branch will be build and sent to QA for a final production integration testing pass, this will be the build that is send to PROD </li>
           </ul>
           <br>
           <h4>Monday after deployment</h4>
           <ul>
-            <li>the release  branch is verified with the deployments that actually when to production</li>
-            <li>the release branch is merged into master</li>
-            <li> all feature branches will pull the release into their branch</li>
+            <li>The release  branch is verified with the deployments that actually went to production</li>
+            <li>The release branch is merged into master</li>
+            <li>All ongoing feature branches will pull the release into their branch</li>
           </ul>
 
 
@@ -194,6 +234,31 @@
           <ul>
             <li>When there is an issue in the Integration build but maybe not in your feature branch, co-op will allow you to troubleshoot particular features with your own</li>
             <li>when your feature is possibly dependant on another feature, but a scenario exists in which your feature could go to PROD on its own</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade int-branch-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" >Int BranchWorkFlow</h3>
+          </div>
+          <h4>Integration Branch WorkFlow</h4>
+          <ul>
+            <li> building to integration</li>
+            <li> merge your feature into the co-op branch, then merge any other feature needed into the Co-Op</li>
+            <li>Co-Op testing/integration should not necessarily delay QA testing</li>
+          </ul>
+          <h4>When to Integrate</h4>
+          <ul>
+            <li>An integration build should be done soon after a feature build that is ready for QA</li>
+            <li>Integration gives you a chance to see your feature co-mingled with other features that have been approved by developers</li>
+            <li>If integration issues arise evaluate the issue to see if it should hamper the QA workflow process</li>
+
           </ul>
         </div>
       </div>
